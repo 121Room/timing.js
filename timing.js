@@ -69,5 +69,7 @@ module.exports = function() {
   api.loadEventTime = timing.loadEventEnd - timing.loadEventStart
   // Dom can interacting time
   api.interactingTime = timing.domContentLoadedEventEnd - timing.navigationStart
+  // TTFB
+  api.ttfb = timing.responseStart - timing.navigationStart
   return api
 }
