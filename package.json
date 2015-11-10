@@ -1,6 +1,6 @@
 {
   "name": "timing_commonjs",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "timing.js packaged for CommonJS",
   "main": "timing.js",
   "scripts": {
