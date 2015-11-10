@@ -24,52 +24,5 @@ module.exports = function() {
     }
   }
 
-  // Time to first paint
-  if (api.firstPaint === undefined) {
-    // All times are relative times to the start time within the
-    // same objects
-    let firstPaint = 0
-
-    // Chrome
-    if (window.chrome && window.chrome.loadTimes) {
-      // Convert to ms
-      firstPaint = window.chrome.loadTimes().firstPaintTime * 1000
-      api.firstPaintTime = firstPaint - (window.chrome.loadTimes().startLoadTime*1000)
-    }
-    // IE
-    else if (typeof window.performance.timing.msFirstPaint === 'number') {
-      firstPaint = window.performance.timing.msFirstPaint
-      api.firstPaintTime = firstPaint - window.performance.timing.navigationStart
-    }
-    // TODO add FireFox support
-    api.firstPaint = firstPaint
-  }
-
-  // Total time from start to load
-  api.loadTime = timing.loadEventEnd - timing.fetchStart
-  // Time completion of the DOM loading
-  api.domReadyTime = timing.domComplete - timing.domInteractive
-  // Time consumed preparing the new page
-  api.readyStart = timing.fetchStart - timing.navigationStart
-  // Time spent during redirection
-  api.redirectTime = timing.redirectEnd - timing.redirectStart
-  // AppCache
-  api.appcacheTime = timing.domainLookupStart - timing.fetchStart
-  // Time spent unloading documents
-  api.unloadEventTime = timing.unloadEventEnd - timing.unloadEventStart
-  // DNS query time
-  api.lookupDomainTime = timing.domainLookupEnd - timing.domainLookupStart
-  // TCP connection time
-  api.connectTime = timing.connectEnd - timing.connectStart
-  // Time spent during the request
-  api.requestTime = timing.responseEnd - timing.requestStart
-  // Time spent constructing the DOM tree
-  api.initDomTreeTime = timing.domInteractive - timing.responseEnd
-  // Load event time
-  api.loadEventTime = timing.loadEventEnd - timing.loadEventStart
-  // Dom can interacting time
-  api.interactingTime = timing.domContentLoadedEventEnd - timing.navigationStart
-  // TTFB
-  api.ttfb = timing.responseStart - timing.navigationStart
   return api
 }
