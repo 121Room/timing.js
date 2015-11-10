@@ -1,7 +1,7 @@
 timing.js
 =========
 
-timing.js packaged for CommonJS
+collect the raw data of Navigation Timing API
 
 ## Installation
 
