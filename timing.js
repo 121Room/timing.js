@@ -2,7 +2,6 @@
 
 module.exports = function() {
   if (window.performance === undefined) {
-    console.log('Unfortunately, your browser does not support the Navigation Timing API')
     return
   }
 
