@@ -1,15 +1,6 @@
-/**
- * Timing.js 1.0.4
- * Copyright 2015 Addy Osmani
- */
-
-/**
- * Navigation Timing API helpers
- * timing.getTimes()
- **/
+'use strict'
 
 module.exports = function() {
-  'use strict'
   if (window.performance === undefined) {
     console.log('Unfortunately, your browser does not support the Navigation Timing API')
     return
